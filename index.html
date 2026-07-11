@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shicheng Xu (徐士成) - Homepage</title>
+  <meta name="description" content="Shicheng Xu (徐士成) — Post-training Researcher at DeepSeek. Research: RL Scaling, Agent, RAG.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Shicheng Xu (徐士成)">
+  <meta property="og:description" content="Post-training Researcher at DeepSeek. Research: RL Scaling, Agent, RAG.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --accent: #52adc8;
+      --accent-dark: #3b8ba5;
+      --text: #494e52;
+      --text-light: #646769;
+      --border: #f2f3f3;
+      --badge: #00369f;
+      --masthead-h: 3.4em;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5em; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      background: #fff;
+    }
+    a { color: var(--accent-dark); text-decoration: none; }
+    a:hover { color: var(--accent); text-decoration: underline; }
+
+    /* ---------- masthead ---------- */
+    .masthead {
+      position: sticky; top: 0; z-index: 20;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      -webkit-animation: intro .3s both; animation: intro .3s both;
+    }
+    .masthead__inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 1em;
+      display: flex; align-items: center; flex-wrap: wrap;
+      min-height: var(--masthead-h);
+    }
+    .masthead__inner a {
+      display: inline-block; padding: .6em .9em;
+      color: var(--text); font-size: .9em; text-decoration: none;
+    }
+    .masthead__inner a:hover { color: var(--accent-dark); }
+    .masthead__inner a.site-title { font-weight: 700; font-size: 1em; }
+
+    /* ---------- layout ---------- */
+    #main {
+      max-width: 1200px; margin: 0 auto; padding: 1.5em 1em 2em;
+      display: flex; gap: 2.5em; align-items: flex-start;
+    }
+    .sidebar {
+      flex: 0 0 250px;
+      position: sticky; top: 4.4em;
+      text-align: left;
+      font-size: .92em;
+    }
+    .content { flex: 1 1 auto; min-width: 0; }
+
+    /* ---------- sidebar profile ---------- */
+    .author__avatar img, .author__avatar svg {
+      width: 175px; height: 175px; border-radius: 50%;
+      object-fit: cover; display: block;
+    }
+    .author__name { margin: .6em 0 0; font-size: 1.25em; }
+    .author__bio { margin: .2em 0 1em; color: var(--text-light); }
+    .author__urls { list-style: none; padding: 0; margin: 0; }
+    .author__urls li { margin-bottom: .6em; white-space: normal; }
+    .author__urls i { color: var(--text-light); width: 1.3em; text-align: center; margin-right: .25em; }
+
+    /* ---------- content ---------- */
+    h1.section {
+      font-size: 1.5em; margin: 1.8em 0 .7em;
+      padding-bottom: .3em; border-bottom: 1px solid var(--border);
+    }
+    h1.section:first-of-type { margin-top: .2em; }
+    .news-list { padding-left: 1.2em; }
+    .news-list li { margin-bottom: .55em; }
+    .news-list em { color: var(--text-light); font-style: normal; font-weight: 600; margin-right: .3em; }
+
+    /* publication / technical report entries (venue tag after the title) */
+    .pub {
+      border-bottom: 1px dashed var(--border);
+      padding: .9em 0;
+    }
+    .pub p.title { margin: 0 0 .3em; font-weight: 600; line-height: 1.5; }
+    .pub p.authors { margin: 0 0 .3em; color: var(--text-light); font-size: .93em; }
+    .pub p.desc { margin: 0; font-size: .93em; color: var(--text); }
+    .pub-venue {
+      display: inline-block; background: var(--badge); color: #fff;
+      font-size: .76em; font-weight: 700; letter-spacing: .02em;
+      padding: .12em .6em; border-radius: 4px;
+      margin-left: .4em; white-space: nowrap; vertical-align: .1em;
+    }
+    .pub-venue.oral { background: #b31b1b; }
+    .pub-venue.journal { background: #1a7f37; }
+    .pub-venue.report { background: #e8710a; }
+
+    ul.plain { padding-left: 1.2em; }
+    ul.plain li { margin-bottom: .45em; }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3em; padding: 1.2em 1em 2em;
+      text-align: center; color: var(--text-light); font-size: .85em;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      #main { flex-direction: column; }
+      .sidebar {
+        position: static; flex: none; width: 100%;
+        display: flex; gap: 1.5em; align-items: center; flex-wrap: wrap;
+      }
+      .author__avatar img, .author__avatar svg { width: 110px; height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead__inner">
+    <a class="site-title" href="#about-me">Homepage</a>
+    <a href="#about-me">About Me</a>
+    <a href="#news">News</a>
+    <a href="#tech-reports">Technical Reports</a>
+    <a href="#publications">Publications</a>
+    <a href="#tutorials">Tutorials</a>
+    <a href="#honors">Honors and Awards</a>
+    <a href="#educations">Educations</a>
+    <a href="#experience">Experience</a>
+  </div>
+</div>
+
+<div id="main">
+
+  <!-- ================= sidebar ================= -->
+  <div class="sidebar">
+    <div class="author__avatar">
+      <!-- Replace images/avatar.jpg with your photo (square, >= 400x400 recommended) -->
+      <img src="images/xushicheng.jpeg" alt="Shicheng Xu (徐士成)"
+           onerror="this.onerror=null;this.src='images/avatar-placeholder.svg';">
+    </div>
+    <div>
+      <h3 class="author__name">Shicheng Xu (徐士成)</h3>
+      <p class="author__bio">Post-training Researcher</p>
+      <ul class="author__urls">
+        <li><div>DeepSeek · Post-training (RL &amp; Agent)</div></li>
+        <li><i class="fa-solid fa-location-dot"></i> Beijing, China</li>
+        <li><a href="mailto:xschit@163.com"><i class="fa-solid fa-envelope"></i> Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a></li>
+        <li><a href="https://github.com/xsc1234" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= content ================= -->
+  <div class="content">
+
+    <span id="about-me"></span>
+    <p>Hello! I'm <strong>Shicheng Xu (徐士成)</strong>, a Post-training Researcher at <strong>DeepSeek</strong>, focusing on <strong>reinforcement learning </strong> and <strong>agentic post-training</strong> for large language models.</p>
+    <p>I received my Ph.D. from the <a href="http://www.ict.ac.cn/" target="_blank" rel="noopener">Institute of Computing Technology, Chinese Academy of Sciences</a> (State Key Laboratory of AI Safety), under the supervision of Prof. Liang Pang and Prof. Xueqi Cheng, and my B.S. from <a href="http://www.hit.edu.cn/" target="_blank" rel="noopener">Harbin Institute of Technology</a>. Before joining DeepSeek, I was an an intern at <strong>ByteDance Seed</strong> (TopSeed Talent Program), where I worked for RL scaling in the post-training of <strong>Seed 1.8</strong>, <strong>Seed 2.0</strong> and <strong>Seed 2.1</strong>. </p>
+    <p>My research interests include <strong>Reinforcement Learning (RL)</strong>, <strong>Agent</strong>, and <strong>Retrieval-Augmented Generation (RAG)</strong>. </p>
+
+    <h1 class="section" id="news">🔥 News</h1>
+    <ul class="news-list">
+      <li><em>2026.07</em>: I joined <strong>DeepSeek</strong> as a Post-training Researcher, working on RL and agentic post-training.</li>
+      <li><em>2026.07</em>: I received my Ph.D. degree from ICT, CAS. Grateful to my advisors and collaborators!</li>
+      <li><em>2026.06</em>: 🚀 <strong>Seed 2.1</strong> is released (<em>Seed2.1 Model Card: Agentic Intelligence for Productivity</em>). I worked for RL scaling in its post-training as a core contributor.</li>
+      <li><em>2026.04</em>: 🎉 Our paper <a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">DxDirector: An Agentic Large Language Model Driving the Full-process Clinical Diagnosis</a> is accepted by <em>Nature Communications</em>.</li>
+      <li><em>2026.02</em>: 🚀 <strong>Seed 2.0</strong> is released (<em>Seed2.0 Model Card: Towards Intelligence Frontier for Real-World Complexity</em>). I worked for RL scaling in its post-training as a core contributor.</li>
+      <li><em>2025.12</em>: 🚀 <strong>Seed 1.8</strong> is released (<em>Seed1.8 Model Card: Towards Generalized Real-World Agency</em>). I worked for RL scaling in its post-training as a core contributor.</li>
+      <li><em>2025.12</em>: 🎉 Our paper <a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">RLKD: Distilling LLMs' Reasoning via Reinforcement Learning</a> is accepted by AAAI 2026.</li>
+      <li><em>2025.11</em>: I joined <strong>ByteDance Seed</strong> as a TopSeed intern, working on RL scaling for Seed foundation models.</li>
+    </ul>
+
+    <h1 class="section" id="tech-reports">🚀 Foundation Model Technical Reports</h1>
+    <p style="color:var(--text-light);font-size:.92em;">Frontier foundation models I contributed to as a core member of the RL scaling / post-training team at ByteDance Seed.</p>
+
+    <div class="pub">
+      <p class="title"><a href="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/seed2.1/Seed2_1_Model_Card.pdf" target="_blank" rel="noopener">Seed2.1 Model Card: Agentic Intelligence for Productivity</a> <span class="pub-venue report">Technical Report</span></p>
+      <p class="desc">Worked for RL scaling algorithms in post-training (Core Contributor).</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2607.00248" target="_blank" rel="noopener">Seed2.0 Model Card: Towards Intelligence Frontier for Real-World Complexity</a> <span class="pub-venue report">Technical Report</span></p>
+      <p class="desc">Worked for RL scaling in post-training (Core Contributor).</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2603.20633" target="_blank" rel="noopener">Seed1.8 Model Card: Towards Generalized Real-World Agency</a> <span class="pub-venue report">Technical Report</span></p>
+      <p class="desc">Worked for RL scaling in post-training (Core Contributor).</p>
+    </div>
+
+    <h1 class="section" id="publications">📝 Publications</h1>
+    <p style="color:var(--text-light);font-size:.92em;">First-author publications. Full list on <a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+
+    <div class="pub">
+      <p class="title"><a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">DxDirector: An Agentic Large Language Model Driving the Full-process Clinical Diagnosis</a> <span class="pub-venue journal">Nature Communications</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Xin Huang, Zihao Wei, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">A 7B clinical agentic LLM that outperforms much more expensive models (DeepSeek, o3-mini, o1, Gemini-2.0-flash) on dynamic, complex, end-to-end full-process clinical reasoning, while interacting with real-world medical workflows efficiently and robustly.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2406.00944" target="_blank" rel="noopener">A Theory for Token-Level Harmonization in Retrieval-Augmented Generation</a> <span class="pub-venue">ICLR 2025</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">The first theoretical framework for the fusion between LLMs' parametric knowledge and retrieved external knowledge, explaining the underlying mechanism and enabling a robust collaborative generation framework.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">Cross-Modal Safety Mechanism Transfer in Large Vision-Language Models</a> <span class="pub-venue">ICLR 2025</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Yunchang Zhu, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">Identifies and fixes the hidden alignment gap between visual and textual modalities in LVLMs, improving the robustness of multimodal agents against harmful visual inputs.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2304.14732" target="_blank" rel="noopener">Search-in-the-Chain: Interactively Enhancing Large Language Models with Search for Knowledge-intensive Tasks</a> <span class="pub-venue">WWW 2024</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng, Tat-Seng Chua</p>
+      <p class="desc">Reshapes the interaction paradigm between LLMs and external tools: keeps the LLM's deep reasoning ability while fully exploiting external information, with robustness to noisy environments.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2402.18150" target="_blank" rel="noopener">Unsupervised Information Refinement Training of Large Language Models for Retrieval-Augmented Generation</a> <span class="pub-venue">ACL 2024</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Mo Yu, Fandong Meng, Huawei Shen, Xueqi Cheng, Jie Zhou</p>
+      <p class="desc">An unsupervised training-data construction method that aligns LLMs with knowledge fed back from external environments, achieving efficient and robust fusion of internal and external knowledge.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2402.02764" target="_blank" rel="noopener">List-aware Reranking-Truncation Joint Model for Search and Retrieval-augmented Generation</a> <span class="pub-venue oral">WWW 2024 Oral</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Jun Xu, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">A generative joint reranking-truncation model that provides high-quality retrieval lists for RAG and keeps RAG robust to retrieval results.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2311.14084" target="_blank" rel="noopener">Invisible Relevance Bias: Text-Image Retrieval Models Prefer AI-Generated Images</a> <span class="pub-venue oral">SIGIR 2024 Oral</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Danyang Hou, Liang Pang, Jingcheng Deng, Jun Xu, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">Reveals the hidden fairness impact of AI-generated images on cross-modal retrieval models.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2305.11052" target="_blank" rel="noopener">BERM: Training the Balanced and Extractable Representation for Matching to Improve Generalization Ability of Dense Retrieval</a> <span class="pub-venue oral">ACL 2023 Oral</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">Improves multi-task, multi-domain generalization of dual-encoder retrieval models by explicitly modeling relevance-scoring behavior during contrastive learning.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://arxiv.org/abs/2204.02725" target="_blank" rel="noopener">Match-Prompt: Improving Multi-task Generalization Ability for Neural Text Matching via Prompt Learning</a> <span class="pub-venue oral">CIKM 2022 Oral</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">Improves multi-task, multi-domain generalization of text matching models via prompt learning in continuous vector space.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">NIR-Prompt: A Multi-task Generalized Neural Information Retrieval Training Framework</a> <span class="pub-venue journal">TOIS</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">A full-pipeline training framework for generalizable neural information retrieval, from recall to ranking.</p>
+    </div>
+
+    <div class="pub">
+      <p class="title"><a href="https://scholar.google.com/citations?user=uptyEfEAAAAJ" target="_blank" rel="noopener">RLKD: Distilling LLMs' Reasoning via Reinforcement Learning</a> <span class="pub-venue">AAAI 2026</span></p>
+      <p class="authors"><strong>Shicheng Xu</strong>, Liang Pang, Huawei Shen, Xueqi Cheng</p>
+      <p class="desc">Effective distillation of LLMs' reasoning ability via reinforcement learning.</p>
+    </div>
+
+    <h1 class="section" id="tutorials">📚 Tutorials</h1>
+    <ul class="plain">
+      <li><strong>Bias and Unfairness in Information Retrieval Systems: New Challenges in the LLM Era</strong> (KDD 2024, WSDM 2025, SIGIR-AP 2025)
+        &nbsp;<a href="https://llm-ir-bias-fairness.github.io/" target="_blank" rel="noopener">[Website]</a>
+        <a href="https://arxiv.org/abs/2404.11457" target="_blank" rel="noopener">[Survey]</a>
+        <a href="https://github.com/KID-22/LLM-IR-Bias-Fairness-Survey" target="_blank" rel="noopener">[GitHub]</a>
+      </li>
+    </ul>
+
+    <h1 class="section" id="honors">🎖 Honors and Awards</h1>
+    <ul class="plain">
+      <li>CAS President Award (中国科学院院长奖)</li>
+      <li>Hua Luogeng Scholarship (华罗庚奖学金)</li>
+      <li>Beijing Outstanding Graduate (北京市优秀毕业生)</li>
+      <li>UCAS Outstanding Graduate (中国科学院大学优秀毕业生)</li>
+      <li>ICT Director's Special Award (中国科学院计算技术研究所所长特别奖)</li>
+      <li>National Scholarship (国家奖学金)</li>
+      <li>UCAS First-class Academic Scholarship (中国科学院大学一等学业奖学金)</li>
+      <li>WWW 2024 Distinguished Speaker</li>
+      <li>HIT Outstanding Graduate (哈尔滨工业大学优秀毕业生)</li>
+    </ul>
+
+    <h1 class="section" id="educations">📖 Educations</h1>
+    <ul class="plain">
+      <li><em>2021.09 - 2026.07</em>, <strong>Institute of Computing Technology, Chinese Academy of Sciences</strong>
+        <ul>
+          <li>Ph.D., State Key Laboratory of AI Safety</li>
+        </ul>
+      </li>
+      <li><em>2017.09 - 2021.07</em>, <strong>Harbin Institute of Technology</strong>
+        <ul>
+          <li>B.S., School of Computer Science and Technology</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h1 class="section" id="experience">💻 Experience</h1>
+    <ul class="plain">
+      <li><em>2026.07 - Present</em>, <strong>DeepSeek</strong>, Post-training Researcher
+        <ul>
+          <li>Post-training algorithms for large language models: reinforcement learning and agentic training.</li>
+        </ul>
+      </li>
+      <li><em>2025.11 - 2026.06</em>, <strong>ByteDance Seed</strong> , Intern, TopSeed Talent Program
+        <ul>
+          <li>RL scaling for the post-training of Seed 1.8, Seed 2.0 and Seed 2.1. </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="footer">
+      © 2026 Shicheng Xu (徐士成) · Last updated: July 2026
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
